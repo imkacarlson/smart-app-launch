@@ -51,9 +51,9 @@
           {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-                "code": "insurance",
-                "display": "Insurance"
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
               }
             ]
           }
@@ -69,15 +69,18 @@
         "address": [
           {
             "city": "Napa",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           },
           {
             "city": "Sonoma",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           },
           {
             "city": "St Helena",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           }
         ],
         "endpoint": [
@@ -135,9 +138,9 @@
           {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-                "code": "insurance",
-                "display": "Insurance"
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
               }
             ]
           }
@@ -153,15 +156,18 @@
         "address": [
           {
             "city": "Sonoma",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           },
           {
             "city": "San Rafael",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           },
           {
             "city": "Santa Rosa",
-            "state": "CA"
+            "state": "CA",
+            "country": "US"
           }
         ],
         "endpoint": [

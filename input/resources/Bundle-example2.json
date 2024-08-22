@@ -62,9 +62,9 @@
           {
             "coding": [
               {
-                "code": "clinical",
-                "system": "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-                "display": "Clinical"
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
               }
             ]
           }
@@ -77,57 +77,69 @@
         "telecom": [
           {
             "system": "url",
-            "value": "https://www.examplehealth.com"
+            "value": "https://health.example.com"
           }
         ],
         "address": [
           {
             "city": "Madison",
-            "state": "WI"
+            "state": "WI",
+            "country": "US"
           },
           {
             "city": "Anamosa",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Cedar Rapids",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Des Moines",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Dubuque",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Fort Dodge",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Grinnell",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Marshalltown",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Peoria",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Pekin",
-            "state": "I"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Muscatine",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           },
           {
             "city": "Sioux City",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           }
         ],
         "endpoint": [
@@ -169,9 +181,9 @@
           {
             "coding": [
               {
-                "code": "clinical",
-                "system": "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-                "display": "Clinical"
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
               }
             ]
           }
@@ -189,7 +201,8 @@
         "address": [
           {
             "city": "Lake City",
-            "state": "IA"
+            "state": "IA",
+            "country": "US"
           }
         ],
         "partOf": {
@@ -224,9 +237,9 @@
           {
             "coding": [
               {
-                "code": "clinical",
-                "system": "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-                "display": "Clinical"
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
               }
             ]
           }
@@ -244,7 +257,8 @@
         "address": [
           {
             "city": "Madison",
-            "state": "WI"
+            "state": "WI",
+            "country": "US"
           }
         ],
         "partOf": {
@@ -264,7 +278,7 @@
           }
         ],
         "status": "active",
-        "address": "https://ehrfhir.examplehealth.org/ProdFHIR/api/FHIR/R4",
+        "address": "https://ehr.example.com/ProdFHIR/api/FHIR/R2",
         "name": "FHIR DSTU2 Endpoint for ExampleHealth",
         "contact": [
           {
@@ -300,7 +314,7 @@
           }
         ],
         "status": "active",
-        "address": "https://ehrfhir.examplehealth.org/ProdFHIR/api/FHIR/R4",
+        "address": "https://ehr.example.com/ProdFHIR/api/FHIR/R4",
         "name": "FHIR R4 Endpoint for ExampleHealth",
         "contact": [
           {

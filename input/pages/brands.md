@@ -14,7 +14,7 @@ In this model, a healthcare **provider, payer, or other organization** exposing 
 
 Using this model, an **app** can:
 
-* **Display** the Brands it has collected (e.g., as cards or tiles in a UX)
+* **Display** the Brands it has collected (e.g., as cards or tiles in a UX).
 * Allow users to **filter or search** Brands based on names, locations, or categories.
 * Allow users to **select** Brands (and more specifically portals) where they have data available.
 * Guide users to **connect** to FHIR endpoints for the selected portals.
@@ -40,11 +40,11 @@ Each Brand includes the following information intended to support an app-based c
 | Field | Description | Cardinality |
 | --- | --- | --- |
 | Name|Primary name for the organization to display on a card, e.g., "General Hospital" | 1..1 |
-| Consumer-facing website for this Brand | note this is distinct from an access portal, described under "Access Details" below | 1..1 |
+| User-facing website for this Brand | note this is distinct from an access portal, described under "Access Details" below | 1..1 |
 | Logo |to be displayed on a card, and link to logo use terms/agreements | 0..1 |
 | Aliases | e.g., former names like "General Health Associates" for filtering/search | 0..* |
 | Identifiers | supporting cross-publisher references or links to external data sets such as the NPI Registry. | 0..* |
-| Locations | zip codes and street addresses associated with the Brand | 0..* |
+| Locations | Places associated with the Brand (e.g., states, cities, or street addresses) | 0..* |
 | Categories | clinical, insurance, laboratory, imaging, pharmacy, network, aggregator --- for filtering/search | 0..* |
 | Portal Details | describes a portal this Brand offers to users **See the table below**.| 0..* |
 {:.grid}
@@ -94,9 +94,9 @@ This conformance overview is intended for convenience and clarity. In case of an
   * SHALL populate `Bundle.timestamp` to advertise the timestamp of the last change to the contents
   * SHOULD populate `Bundle.entry.resource.meta.lastUpdated` with a more detailed timestamp if the system tracks updates per Resource.
   * SHALL support Cross-Origin Resource Sharing (CORS) for all GET requests to the artifacts described in this guide.
-  * SHOULD include a weak `ETag`` header in all Brand Bundle HTTP responses
+  * SHOULD include a weak `ETag` header in all Brand Bundle HTTP responses
   * SHALL allow Health Data Providers to manage all data elements marked "Must-Support" in the "[User Access Brand](StructureDefinition-user-access-brand.html)" and "[User Access Endpoint](StructureDefinition-user-access-endpoint.html)" profiles
-    * SHALL support customer-supplied Organization identifiers (`system` and `value``)
+    * SHALL support customer-supplied Organization identifiers (`system` and `value`)
     * MAY provide a Data Absent Reason of `asked-declined` or `asked-unknown` in a Brand Bundle
     * SHALL NOT use Data Absent Reasons other than `asked-declined` or `asked-unknown` in a Brand Bundle
 * **SMART on FHIR Server**. Any SMART on FHIR server that supports discovery of a User Access Brand Bundle.
@@ -146,9 +146,9 @@ This annotated example illustrates how a Brand is represented as a FHIR Organiza
   // can be included here.
   "type" : [{
     "coding" : [{
-      "system" : "http://hl7.org/fhir/smart-app-launch/CodeSystem/user-access-category",
-      "code" : "clinical",
-      "display" : "Clinical"
+      "system" : "http://terminology.hl7.org/CodeSystem/organization-type",
+      "code" : "prov",
+      "display" : "Healthcare Provider"
     }]
   }],
   "extension" : [{
@@ -163,7 +163,9 @@ This annotated example illustrates how a Brand is represented as a FHIR Organiza
       "url" : "brandLogo",
       "valueUrl" : "https://goodhealth.example.org/images/logo.svg"
     },{
-      // (0..*) Link to the license agreement for the logo, if applicable
+      // (0..*) Link to the license agreement for the logo, if applicable.
+      // Developers must review and agree to the linked logo license terms
+      // prior to using the logo in their applications.
       "url" : "brandLogoLicense",
       "valueUrl" : "https://goodhealth.example.org/license.html"
     }, {
@@ -237,7 +239,10 @@ This annotated example illustrates how a Brand is represented as a FHIR Organiza
     "value" : "https://brand.example.com"
   }],
   // Locations (e.g., zip codes and/or street addresses) associated with the Brand.
-  // The following combinations are allowed:
+  // The following combinations are allowed, and as a best practice to ensure
+  // consistent worldwide adoption, the Address.country data element SHOULD be
+  // populated inside any of these with an ISO 3166-1 alpha-2 country code.
+:
   // * State
   // * City, state
   // * City, state, zip code
@@ -246,9 +251,11 @@ This annotated example illustrates how a Brand is represented as a FHIR Organiza
   "address" : [{
     "city" : "Boston",
     "state" : "MA",
-    "postalCode" : "02111"
+    "postalCode" : "02111",
+    "country": "US"
   }, {
-    "postalCode" : "02139"
+    "postalCode" : "02139",
+    "country": "US"
   }],
   // These endpoints are already listed above in association with their portal.
   // They are repeated here as a convenience for clients that do not know how
